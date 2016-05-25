@@ -5,6 +5,7 @@ import numpy as np
 import copy
 import math
 import sys
+
 q=1
 for i in sys.argv:
 	if q==1:
@@ -16,5 +17,6 @@ for i in sys.argv:
 	cv2.drawContours(y,[ct],0,(255),2)
 	plt.imshow(y,'gray')
 	plt.show()
-	cv2.waitKey(3000)
+    #cv2.imshow('thresh',y)
+    #cv2.waitKey(0)
 cv2.destroyAllWindows()
