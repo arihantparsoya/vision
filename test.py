@@ -1,4 +1,5 @@
 from outer import encContour
+from height import height
 from matplotlib import pyplot as plt
 import cv2
 import numpy as np
@@ -6,17 +7,10 @@ import copy
 import math
 import sys
 
-q=1
-for i in sys.argv:
-	if q==1:
-		q=0
-		continue
-	x = cv2.imread(i)
-	y=np.zeros(x.shape[0:2],dtype=np.uint8)
-	ct=encContour(i)
-	cv2.drawContours(y,[ct],0,(255),2)
-	plt.imshow(y,'gray')
-	plt.show()
-    #cv2.imshow('thresh',y)
-    #cv2.waitKey(0)
+
+image = cv2.imread('1.jpg')
+cnt = encContour('1.jpg')
+cv2.drawContours(image,cnt,-1,(255),3)
+cv2.imshow('image',image)
+cv2.waitKey(0)
 cv2.destroyAllWindows()

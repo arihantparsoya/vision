@@ -10,6 +10,16 @@ import imutils
 import cv2
 
 def height(name, width=2):
+    '''
+    To find the height of the person in the image.
+    Imputs:
+        name: name of the file.
+        width: real length of the reference object
+
+    Outputs:
+        (nothing yet, displays the topmost, bottom-most points of the body)
+
+    '''
     # load the image, convert it to grayscale, and blur it slightly
     image = cv2.imread(name)
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

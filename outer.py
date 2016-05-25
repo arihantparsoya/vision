@@ -2,6 +2,16 @@ import cv2
 import numpy as np
 
 def encContour(i):
+	'''
+	To returns the contour which encloses the whold body of the person in the
+	image
+
+	Inputs:
+		i : name of the file
+
+	Outputs:
+		the contour which encloses the whole body
+	'''
 	image=cv2.imread(i)
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	thresh = cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV,21,8)
