@@ -45,9 +45,13 @@ def plot_contour(cnt1=None, cnt2=None, axis1='X', axis2='Y', top_axis='Z'):
 
     ax.scatter(x1, y1, z1, c='r', marker='D')
     ax.scatter(x2, y2, z2, c='r', marker='*')
-
+    axes = plt.gca()
+    axes.set_xlim([-300,300])
+    axes.set_ylim([-300,300])
+    axes.set_zlim([-1600,100])
+    plt.gca().set_aspect('equal', adjustable='box')
     ax.set_xlabel('X Label')
     ax.set_ylabel('Y Label')
     ax.set_zlabel('Z Label')
-
+    #plt.axis('equal')
     plt.show()
