@@ -8,9 +8,13 @@ import copy
 import math
 import sys
 
-url = '4.jpg'
-cnt = encContour(url)
-plot_contour(cnt1= cnt, cnt2= cnt, axis1='X')
+cnt1 = encContour('man_front.jpg')
+cnt2 = encContour('man_side.jpg')
+image = cv2.imread('man_front.jpg')
+plot_contour(cnt1= cnt1, cnt2= cnt2)
+cv2.drawContours(image,cnt1,-1,(255),3)
+cv2.imshow('front image',image)
+cv2.waitKey(0)
 #print((cnt))
 '''
 #test for encContour
