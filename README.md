@@ -17,7 +17,7 @@ To install the required libraries to the folder and run:
 
 `pip install -r requirements.txt`
 
->> still in development phase hence its better to run the `test.py`file to see whats been done so far.
+* still in development phase hence its better to run the `test.py`file to see whats been done so far.
 
 
 
