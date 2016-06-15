@@ -1,9 +1,16 @@
 import cv2
 import numpy as np
 from outer import encContour
-# Takes the name of front , side view and image with arms stretched out of model and either of front and side view of real image 
+# Takes the name of front , side view and image with arms stretched out of model and either of front and side view of real image
 # Returns the name of newly created images scaled according to height
 def resize_model(mfront,mfrontf,mside,rimg):
+	'''
+	inputs:
+		mfront: front view of reference model
+		mfrontf: front view of reference model arms stretched
+		mside: side view of reference model
+		rimg: test image ( front or side )
+	'''
 	mf=encContour(mfront)
 	ms=encContour(mside)
 	mff=encContour(mfrontf)
@@ -16,7 +23,7 @@ def resize_model(mfront,mfrontf,mside,rimg):
 	eb_mff = tuple(mff[mff[:, :, 1].argmax()][0])
 	et_rimg = tuple(rimg[rimg[:, :, 1].argmin()][0])
 	eb_rimg = tuple(rimg[rimg[:, :, 1].argmax()][0])
-	
+
 	hf=eb_mf[1]-et_mf[1]
 	hs=eb_ms[1]-et_ms[1]
 	hff=eb_mff[1]-et_mff[1]

@@ -1,5 +1,11 @@
 import numpy as np
 def give_index_ct(contour,height):
+	'''
+	input:
+		contour:
+	output:
+		indices of points on the contour at a given height
+	'''
 	x=[]
 	for i in range(0,len(contour)-2):
 		if i%2==0:

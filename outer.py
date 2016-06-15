@@ -2,6 +2,12 @@ import cv2
 import numpy as np
 from matplotlib import pyplot as plt
 def encContour(i):
+	'''
+	inputs:
+		i: name of the image in jpg format
+	output:
+		enclosing contour
+	'''
 	image=cv2.imread(i)
 	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 	#thresh = cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY_INV,11,8)
@@ -21,4 +27,3 @@ def encContour(i):
 			if cv2.arcLength(t,True) < cv2.arcLength(i,True):
 				t=i
 		return t
-	

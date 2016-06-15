@@ -2,6 +2,12 @@ import cv2
 import numpy as np
 a=[]
 def ret2Val (i):
+	'''
+	inputs:
+		i: name of the image
+	output:
+		returns the points where the mouse is clicked
+	'''
 	def ret2val(event,x,y,flags,param):
 		if event==cv2.EVENT_LBUTTONDOWN :
 			a.append([x,y])
@@ -14,11 +20,11 @@ def ret2Val (i):
 		cv2.imshow('Click',image)
 		if cv2.waitKey(20) & 0xFF ==27 :
 			break
-			
+
 		if len(a) == 2:
-			
+
 			return np.sort(a,axis=1)
 			cv2.destroyAllWindows()
 			exit(0)
-	
+
 	return [0,0]

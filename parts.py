@@ -6,15 +6,28 @@ from outer import encContour
 #cont_f=encContour('mfront.jpg')
 
 def join_points(inpf, inps):
+	'''
+	inputs:
+		inpf: input front image file
+		inps: input side image file
+	output:
+		enclosing contour of:
+			1. head
+			2. body without head
+			3. side view of head
+			4. body without head side view
+			5. hands(front view)
+			6. body without hands(front view)
+	'''
 	imgf=cv2.imread(inpf)
 	imgs=cv2.imread(inps)
 	cont_f=encContour(inpf)
 	cont_s=encContour(inps)
 #to traverse through x and y coordinates(Rahul's fn.)
 	def retval (t,f,co) :
-		
+
 		x=[]
-		
+
 		for i in range(0,len(f)-1):
 			a=f[:,0,1-co][i]-t
 			b=f[:,0,1-co][i+1]-t
@@ -27,7 +40,7 @@ def join_points(inpf, inps):
 				if a*b<0:
 					x.append((f[:,0,co][i]+f[:,0,co][i+1])/2)
 		sorted(x)
-		
+
 		y=[]
 		for i in range(0,len(x)-1):
 			if x[i] == x[i+1] :
@@ -53,7 +66,7 @@ def join_points(inpf, inps):
 		if i==0:
 			continue
 		ran[i]=b[1]-ran[i]
-		
+
 	c=0
 	z=0
 	X=[]
@@ -92,7 +105,7 @@ def join_points(inpf, inps):
 	imgs1[0:ts[1]+dist,:]=img5[0:ts[1]+dist,:]
 	cv2.imwrite('headside.jpg', img6)
 	cv2.imwrite('hhside.jpg', imgs1)
-	
+
 	#cv2.imshow(img2, 'head')
 	Y=[]
 	height,width,dim=imgf.shape
@@ -112,7 +125,7 @@ def join_points(inpf, inps):
 			if p_slope!=0:
 				ratio=slope/p_slope
 			p_slope=slope
-		else: 
+		else:
 			continue
 		if ratio>1.5:
 			Y.append([i,y[1]])
@@ -132,6 +145,3 @@ def join_points(inpf, inps):
 	cv2.imwrite('hands.jpg', img4)
 	cv2.imwrite('fj.jpg', imgf2)
 	return encContour('head.jpg'), encContour('hh.jpg'), encContour('headside.jpg'), encContour('hhside.jpg'), encContour('hands.jpg'), encContour('fj.jpg');
-
-			
-		
