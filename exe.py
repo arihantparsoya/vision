@@ -1,5 +1,5 @@
 import cv2
 import numpy as np
-from parts import join_points
+from parts import disint
 
-a,b,c,d,e,f=join_points('mfront.jpg', 'mside.jpg')
+a,b,c,d,e,f=disint('scaled_mfrontf.jpg', 'mside.jpg')
